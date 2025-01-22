@@ -31,4 +31,9 @@ public class ProdutoController {
         Optional<Produto> produto = repository.findById(id);
         return produto.isPresent() ? produto.get() : null;
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") String id){
+        repository.deleteById(id);
+    }
 }
