@@ -5,6 +5,7 @@ import com.SpringBasic.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -42,4 +43,10 @@ public class ProdutoController {
         produto.setId(id);
         repository.save(produto);
     }
+
+    @GetMapping
+    public List<Produto> buscar(@RequestParam("nome") String nome){
+        return repository.findByNome(nome);
+    }
+
 }
